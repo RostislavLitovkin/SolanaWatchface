@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SolanaWatchface.TextWatchApplication">
+    <Application.MainPage>
+        <ContentPage>
+            <AbsoluteLayout BackgroundColor="Black">
+                <Image Source="SolanaBlueLogo.jpg" AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360" AbsoluteLayout.LayoutFlags="PositionProportional" Aspect="AspectFill"
+                       x:Name="blueLogo"/>
+                <Image Source="SolanaYellowLogo.jpg" AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360" AbsoluteLayout.LayoutFlags="PositionProportional" Aspect="AspectFill"
+                       x:Name="yellowLogo" Opacity="0"/>
+                <Image Source="SolanaGrayLogo.jpg" AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360" AbsoluteLayout.LayoutFlags="PositionProportional" Aspect="AspectFill" IsVisible="false"
+                       x:Name="grayLogo"/>
+                <AbsoluteLayout x:Name="particleLayout"
+                                AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <BoxView/>
+                </AbsoluteLayout>
+                <Label AbsoluteLayout.LayoutBounds="65, 253, 230, AutoSize" HorizontalTextAlignment="Start" FontFamily="bignoodletitling.ttf"
+                       Text="{Binding Time, StringFormat='{0:dd MMMM}'}"/>
+                <Label AbsoluteLayout.LayoutBounds="65, 253, 230, AutoSize" HorizontalTextAlignment="End" FontFamily="bignoodletitling.ttf"
+                       x:Name="currentPriceLabel"
+                       Text="loading data"/>
+                <Label AbsoluteLayout.LayoutBounds="65, 253, 230, AutoSize" HorizontalTextAlignment="Center" FontFamily="bignoodletitling.ttf"
+                       x:Name="middleLabel"
+                       Text="|"/>
+                <Label AbsoluteLayout.LayoutBounds="0.5, 1, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"
+                       Text="{Binding BatteryPercentage, StringFormat='{0}%'}" HorizontalTextAlignment="Center" FontFamily="bignoodletitling.ttf" FontSize="6"/>
+                <Image Source="hourshand.png" AbsoluteLayout.LayoutBounds="177, 0, 6, 360"
+                       Rotation="{Binding HourHandRotation}"/>
+                <Image Source="minuteshand.png" AbsoluteLayout.LayoutBounds="179, 0, 2, 360"
+                       Rotation="{Binding MinuteHandRotation}"/>
+                <Image Source="secondshand.png" AbsoluteLayout.LayoutBounds="178, 0, 4, 360" x:Name="secondsHand"
+                       Rotation="{Binding SecondHandRotation}"/>
+                <!--
+                <AbsoluteLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </AbsoluteLayout.GestureRecognizers>
+                -->
+            </AbsoluteLayout>
+        </ContentPage>
+    </Application.MainPage>
+</Application>
